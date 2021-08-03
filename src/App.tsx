@@ -1,8 +1,9 @@
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import { LoginPage } from "pages/login";
-import { PostsPage } from "pages/posts";
-function App() {
+import LoginPage from 'pages/login';
+import PostsPage from 'pages/posts';
+
+function App(): JSX.Element {
   return (
     <Router>
       <Switch>

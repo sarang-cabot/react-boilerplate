@@ -1,3 +1,4 @@
-export function LoginPage() {
+function LoginPage(): JSX.Element {
   return <div>LoginPage</div>;
 }
+export default LoginPage;
