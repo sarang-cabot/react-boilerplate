@@ -10,18 +10,6 @@ export const updatePost = ({
   ...updatedPost
 }: Post): Promise<AxiosResponse<void>> => api.put(`/posts/${id}`, { id, ...updatedPost }).then((res) => res.data);
 
-export const posts = async (): Promise<Post[]> => (await fetch(`${url}/posts`)).json() as Promise<Post[]>;
+export const posts = async (): Promise<Post[]> => api.get('/posts').then((res) => res.data);
 
-export const getPost = (id: number) => async (): Promise<Post> => (await fetch(`${url}/posts/${id}`)).json() as Promise<Post>;
-
-export const changePost = async ({
-  id,
-  ...formData
-}: Post): Promise<Response> => fetch(`${url}/posts/${id}`, {
-  method: 'PUT',
-  body: JSON.stringify({ id, ...formData }),
-  headers: {
-    Accept: 'application/json',
-    'Content-Type': 'application/json',
-  },
-});
+export const getPost = async (id: number): Promise<Post> => api.get(`/posts/${id}`).then((res) => res.data);

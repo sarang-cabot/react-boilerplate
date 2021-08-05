@@ -23,7 +23,7 @@ function Post({ postId }: PostProps): JSX.Element {
     isError,
     isLoading,
     data = initialData,
-  } = useQuery(`posts/${postId}`, getPost(postId));
+  } = useQuery(['posts', postId], () => getPost(postId));
 
   return (
     <Layout error={isError} loading={isLoading}>

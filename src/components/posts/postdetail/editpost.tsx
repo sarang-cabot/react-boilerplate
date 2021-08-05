@@ -1,9 +1,8 @@
-import { updatePost } from 'api';
 import { Post } from 'api/models';
 import { useState } from 'react';
-import { useMutation, useQueryClient } from 'react-query';
 import Button from 'components/buttton';
 import { Form, Input } from './editpost.styled';
+import useEditPost from './useEdit';
 
 interface EditPostProps {
   post: Post;
@@ -12,15 +11,10 @@ interface EditPostProps {
 
 function EditPost({ post, onSave }: EditPostProps): JSX.Element {
   const [formData, setFormData] = useState(post);
-  const queryClient = useQueryClient();
-  const postMutation = useMutation(updatePost, {
-    onSuccess: () => {
-      queryClient.invalidateQueries();
-    },
-  });
+  const { savePost } = useEditPost();
 
-  function saveChanges() {
-    postMutation.mutate(formData);
+  function saveClickHandler() {
+    savePost(formData);
     onSave();
   }
 
@@ -36,7 +30,7 @@ function EditPost({ post, onSave }: EditPostProps): JSX.Element {
         value={formData.description}
         onChange={(e) => setFormData((data) => ({ ...data, description: e.target.value }))}
       />
-      <Button onClick={saveChanges}>Save changes</Button>
+      <Button onClick={saveClickHandler}>Save changes</Button>
     </Form>
   );
 }
