@@ -3,29 +3,27 @@ import Title, {
   PostContainer,
   InfoSection,
   PostImage,
-  PostContent,
 } from './postcard.styled';
 
 interface PostCardProps {
   vertical?: boolean;
   title: string;
-  content: string;
   image: string;
+  onClick?: React.MouseEventHandler<HTMLDivElement>;
 }
 
 function PostCard({
   vertical,
   title,
-  content,
   image,
+  onClick,
 }: PostCardProps): JSX.Element {
   return (
-    <Card>
+    <Card onClick={onClick}>
       <PostContainer>
         <PostImage src={image} alt="post" />
         <InfoSection>
           <Title>{title}</Title>
-          <PostContent>{content}</PostContent>
         </InfoSection>
       </PostContainer>
     </Card>
@@ -33,5 +31,8 @@ function PostCard({
 }
 PostCard.defaultProps = {
   vertical: true,
+  onClick: () => {
+    /* */
+  },
 };
 export default PostCard;

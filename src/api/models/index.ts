@@ -3,7 +3,7 @@ interface BasicModel {
 }
 
 export interface Post extends BasicModel {
-  userId: number;
   title: string;
-  body: string;
+  description: string;
+  image: string;
 }
