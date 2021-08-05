@@ -45,7 +45,8 @@
   "config": {
     "commitizen": {
       "path": "cz-conventional-changelog"
-    },
+    }
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
