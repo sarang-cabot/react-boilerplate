@@ -36,7 +36,7 @@
     "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
       "prettier --write",
       "eslint --fix",
-      "test:staged"
+      "cross-env CI=true react-scripts test --env=jsdom --findRelatedTests"
     ]
   },
   "husky": {

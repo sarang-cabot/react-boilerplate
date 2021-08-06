@@ -3,7 +3,7 @@ import { DefaultTheme } from 'styled-components';
 const theme: DefaultTheme = {
   colors: {
     primary: '#064a18',
-    background: '#aee6bd',
+    background: '#aee6be',
   },
   // spacing system from https://lukebrown.dev/writing/how-to-create-a-spacing-system-with-styled-components
   space: [
