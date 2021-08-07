@@ -6,6 +6,7 @@ import { useState } from 'react';
 import Button from 'components/buttton';
 import PostDetail from './postdetail';
 import EditPost from './editpost';
+import { DetailContainer } from './postdetail.styled';
 
 interface PostProps {
   postId: number;
@@ -27,7 +28,7 @@ function Post({ postId }: PostProps): JSX.Element {
 
   return (
     <Layout error={isError} loading={isLoading}>
-      <div>
+      <DetailContainer>
         {isEditing ? (
           <EditPost post={data} onSave={() => setEditing(false)} />
         ) : (
@@ -38,7 +39,7 @@ function Post({ postId }: PostProps): JSX.Element {
             Edit
           </Button>
         )}
-      </div>
+      </DetailContainer>
     </Layout>
   );
 }

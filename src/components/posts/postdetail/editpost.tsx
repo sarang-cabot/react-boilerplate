@@ -1,7 +1,7 @@
 import { Post } from 'api/models';
 import { useState } from 'react';
 import Button from 'components/buttton';
-import { Form, Input } from './editpost.styled';
+import { Form, Input, TextArea } from './editpost.styled';
 import useEditPost from './useEdit';
 
 interface EditPostProps {
@@ -25,11 +25,11 @@ function EditPost({ post, onSave }: EditPostProps): JSX.Element {
         value={formData.title}
         onChange={(e) => setFormData((data) => ({ ...data, title: e.target.value }))}
       />
-      <Input
-        type="text"
+      <TextArea
         value={formData.description}
         onChange={(e) => setFormData((data) => ({ ...data, description: e.target.value }))}
       />
+
       <Button onClick={saveClickHandler}>Save changes</Button>
     </Form>
   );

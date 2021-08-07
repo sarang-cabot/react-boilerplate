@@ -10,3 +10,8 @@ export const Container = styled.div`
 export const Title = styled.div`
   font-size: ${({ theme: { fonts } }) => fonts.sizes.medium};
 `;
+
+export const DetailContainer = styled.div`
+  margin-top: 50px;
+  width: 90%;
+`;

@@ -7,4 +7,6 @@ export const PostContainer = styled.div`
 
 export const PostCardSection = styled.div`
   flex: 1;
+  height: 100vh;
+  overflow: auto;
 `;
