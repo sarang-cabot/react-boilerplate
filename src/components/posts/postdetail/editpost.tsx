@@ -29,8 +29,10 @@ function EditPost({ post, onSave }: EditPostProps): JSX.Element {
         value={formData.description}
         onChange={(e) => setFormData((data) => ({ ...data, description: e.target.value }))}
       />
-
-      <Button onClick={saveClickHandler}>Save changes</Button>
+      <div>
+        <Button onClick={saveClickHandler}>Cancel</Button>
+        <Button onClick={saveClickHandler}>Save changes</Button>
+      </div>
     </Form>
   );
 }

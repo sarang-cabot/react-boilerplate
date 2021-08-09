@@ -9,4 +9,5 @@ export const TextArea = styled.textarea`
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
+  width: 90%;
 `;

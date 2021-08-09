@@ -26,11 +26,15 @@ function Post({ postId }: PostProps): JSX.Element {
     data = initialData,
   } = useQuery(['posts', postId], () => getPost(postId));
 
+  function editPostHandler() {
+    setEditing(false);
+  }
+
   return (
     <Layout error={isError} loading={isLoading}>
       <DetailContainer>
         {isEditing ? (
-          <EditPost post={data} onSave={() => setEditing(false)} />
+          <EditPost post={data} onSave={editPostHandler} />
         ) : (
           <PostDetail post={data} />
         )}

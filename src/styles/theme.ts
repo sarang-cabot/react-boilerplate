@@ -29,7 +29,7 @@ const theme: DefaultTheme = {
   fonts: {
     primary: '"Open Sans", Arial, sans-serif',
     colors: {
-      medium: '#2E333E',
+      medium: 'black',
     },
     weights: {
       light: 300,

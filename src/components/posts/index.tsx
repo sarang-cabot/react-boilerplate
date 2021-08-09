@@ -11,7 +11,7 @@ function PostsPage(): JSX.Element {
   const [selectedPost, setPost] = useState<number>();
 
   useEffect(() => {
-    if (data) setPost(data[0].id);
+    if (data) setPost(data[0]?.id);
   }, [data]);
 
   function cardHandler(id: number) {
