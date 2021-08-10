@@ -1,4 +1,6 @@
 import { Post } from 'api/models';
+// eslint-disable-next-line no-use-before-define
+import React from 'react';
 import {
   Container, Title, PostImage, Description,
 } from './postdetail.styled';
@@ -18,4 +20,4 @@ function PostDetail({
     </Container>
   );
 }
-export default PostDetail;
+export default React.memo(PostDetail);

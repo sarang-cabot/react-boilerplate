@@ -1,6 +1,5 @@
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import PostsPage from 'components/posts';
-import PrimeNumber from 'components/prime';
 
 function Router(): JSX.Element {
   return (
@@ -8,9 +7,6 @@ function Router(): JSX.Element {
       <Switch>
         <Route path="/">
           <PostsPage />
-        </Route>
-        <Route path="/prime">
-          <PrimeNumber />
         </Route>
       </Switch>
     </BrowserRouter>

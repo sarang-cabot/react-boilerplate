@@ -11,3 +11,7 @@ export const PostCardSection = styled.div`
   height: 100vh;
   overflow: auto;
 `;
+export const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`;
