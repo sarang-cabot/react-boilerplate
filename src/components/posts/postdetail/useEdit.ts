@@ -12,15 +12,15 @@ function useEditPost(): EditResponse {
   const postMutation = useMutation(updatePost, {
     onMutate: async (updatedPost) => {
       await queryClient.cancelQueries('posts');
-      const previousPosts = queryClient.getQueryData('posts');
+      const previousPosts = queryClient.getQueryData<Post[]>('posts');
       queryClient.setQueryData('posts', (old: Post[] | undefined) => (old
         ? old.map((post) => (post.id === updatedPost.id ? updatedPost : post))
         : []));
 
       return { previousPosts };
     },
-    onError: (context: any) => {
-      queryClient.setQueryData('posts', context.previousTodos);
+    onError: (context: { previousPosts: Post[] }) => {
+      if (context?.previousPosts) queryClient.setQueryData('posts', context.previousPosts);
     },
     onSettled: () => {
       queryClient.invalidateQueries('posts');
