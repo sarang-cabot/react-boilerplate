@@ -10,7 +10,19 @@ interface EditResponse {
 function useEditPost(): EditResponse {
   const queryClient = useQueryClient();
   const postMutation = useMutation(updatePost, {
-    onSuccess: () => {
+    onMutate: async (updatedPost) => {
+      await queryClient.cancelQueries('posts');
+      const previousPosts = queryClient.getQueryData('posts');
+      queryClient.setQueryData('posts', (old: Post[] | undefined) => (old
+        ? old.map((post) => (post.id === updatedPost.id ? updatedPost : post))
+        : []));
+
+      return { previousPosts };
+    },
+    onError: (context: any) => {
+      queryClient.setQueryData('posts', context.previousTodos);
+    },
+    onSettled: () => {
       queryClient.invalidateQueries('posts');
     },
   });
