@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import Layout from 'components/layout';
 import Button from 'components/buttton';
 import PostCard from './postcard';
-import PostDetail from './postdetail';
+import PostDetail from './post';
 import { PostContainer, PostCardSection, ButtonContainer } from './post.styled';
 
 function PostsPage(): JSX.Element {
