@@ -1,9 +1,7 @@
 import axios, { AxiosResponse } from 'axios';
 import { Post } from './models';
 
-const url = 'http://127.0.0.1:3000';
-
-const api = axios.create({ baseURL: url });
+const api = axios.create({ baseURL: process.env.REACT_APP_SERVER_URL });
 
 export const updatePost = ({
   id,
