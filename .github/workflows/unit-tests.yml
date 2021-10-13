@@ -3,9 +3,8 @@ name: Unit Tests
 
 # execute on events
 on:
-  push:
-    branches:
-      - master
+  pull_request:
+    types: [assigned, opened, synchronize, reopened]
 
 # jobs to run
 jobs:
